@@ -1,8 +1,10 @@
 node{
-stage('SCM Checkout'){
+stage('SCM Checkout'){  
 git 'https://github.com/revathipriya-it21/jenkins'
 }
 stage('Compile-Pakage'){
-sh 'mvn package'
+    def mnvHome = tool name: 'MAVEN_HOME', type: 'maven'
+  sh "${mvnHome}/bin/mvn package"
 }
+  
 }
